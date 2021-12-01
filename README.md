@@ -1,3 +1,3 @@
 # maven_training
-[![build CI] (cf https://docs.github.com/en/actions/managing-workflow-runs/adding-a-workflow-status-badge)
-[![couverture par les tests] (cf https://codecov.io/gh/<Ursemesiea>/<git_training>/settings/badge)
+[![build status](https://github.com/Ursemesiea/maven_training/actions/workflows/build.yml/badge.svg)
+[![codecov](https://codecov.io/gh/Ursemesiea/maven_training/branch/main/graph/badge.svg?token=BWBHVK8Z4L)](https://codecov.io/gh/Ursemesiea/maven_training)

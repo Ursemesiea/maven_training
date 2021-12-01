@@ -1,37 +1,32 @@
 package fr.lernejo;
-
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
-
 class SampleTest {
-    public final static Sample TestSample = new Sample();
 
-    @Test
-    void addTest(){
-        int resultat = TestSample.op(Sample.Operation.ADD,4,4);
-        Assertions.assertThat(resultat).as("sum of 4+4")
-            .isEqualTo(8);
-    }
-    @Test
-    void MultTest(){
-        int resultat = TestSample.op(Sample.Operation.MULT,4,5);
-        Assertions.assertThat(resultat).as("multiplication of 4 and 5")
-            .isEqualTo(20);
+    @org.junit.jupiter.api.Test
+    void operation_by_int_should_produce() {
+        Sample object = new Sample();
+        int x = object.op(Sample.Operation.ADD, 5, 6);
+        int y = object.op(Sample.Operation.MULT, 5, 6);
+        Assertions.assertThat(x).as("5 + 6 = ").isEqualTo(11);
+        Assertions.assertThat(y).as("5 * 6 = ").isEqualTo(30);
     }
 
-    @Test
-    void FactTest(){
-        int resultat = TestSample.fact(5);
-        Assertions.assertThat(resultat).as("Factorial of 1")
-            .isEqualTo(120);
+
+    @org.junit.jupiter.api.Test
+    void fact_by_negative_int_should_produce_an_exception() {
+        Sample object = new Sample();
+        //int t = object.fact(-3);
+        //Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(t)
+        assertThrows(IllegalArgumentException.class, () -> {
+            object.fact(-3);
+        });
     }
 
-    @Test
-    void FactNegTest(){
-        int resultat = -1;
-        Assertions.assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(()->TestSample.fact(resultat));
+    @org.junit.jupiter.api.Test
+    void fact_by_int_should_produce() {
+        Sample object = new Sample();
+        int j = object.fact(3);
+        Assertions.assertThat(j).as("fact(3) = ").isEqualTo(6);
     }
-
 }
